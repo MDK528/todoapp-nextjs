@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "../providers/theme/theme-toggler";
+import { LoginButton } from "../auth/login-button";
 
 export function Navbar() {
   return (
@@ -34,10 +35,10 @@ export function Navbar() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <ModeToggle />
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/sign-in">Sign in</Link>
+            <LoginButton />
           </Button>
           <Button size="sm" asChild>
             <Link href="/sign-up">Get started</Link>

@@ -1,3 +1,3 @@
 export function LoginButton() {
-  return <a href="/auth/login" className="text-sm">Log in</a>;
+  return <a href="/signin" className="text-sm">Log in</a>;
 }

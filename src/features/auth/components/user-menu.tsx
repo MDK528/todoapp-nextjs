@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,10 +13,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SIGN_IN_PATH } from "../utils";
-import { CircleChevronUp, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 
-const DEFAULT_PLAN = "Free";
 
 export type UserMenuUser = {
   name?: string | null;
@@ -30,9 +27,7 @@ export type UserMenuTriggerVariant = "compact" | "profile"
 
 type UserMenuProps = {
   user: UserMenuUser;
-  /** `compact` — avatar-only trigger; `profile` — avatar + name in the trigger. */
   variant?: UserMenuTriggerVariant;
-  // plan?: string;
   className?: string;
 };
 
@@ -72,7 +67,6 @@ function UserAvatar({
 export function UserMenu({
   user,
   variant = "profile",
-  // plan = DEFAULT_PLAN,
   className,
 }: UserMenuProps) {
   const router = useRouter();
@@ -102,19 +96,23 @@ export function UserMenu({
           </Button>
         ) : (
           <Button
-            variant="ghost"
-            className="h-9 gap-2 px-2"
+            variant="outline"
+            className="h-14 gap-2 px-2 py-2  hover:bg-primary flex justify-baseline"
             aria-label="Open account menu"
           >
-            <UserAvatar user={user} size="sm" />
-            <span className="max-w-32 truncate text-left text-xs font-medium">
-              {displayName}
-            </span>
-            <CircleChevronUp className="size-4 text-muted-foreground" />
+            <UserAvatar user={user} size="lg" />
+            <div className="flex flex-col">
+              <span className="max-w-32 truncate text-left text-md font-medium">
+                {displayName}
+              </span>
+              <span className="max-w-32 truncate text-left text-[10px] font-medium">
+                {user?.email}
+              </span>
+            </div>
           </Button>
         )}
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="center" className="w-56">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="p-0 font-normal">
             <div className="flex items-start gap-2 px-2 py-2">
@@ -126,9 +124,6 @@ export function UserMenu({
                     {user.email}
                   </p>
                 ) : null}
-                {/* <Badge variant="secondary" className="w-fit">
-                  {plan} plan
-                </Badge> */}
               </div>
             </div>
           </DropdownMenuLabel>

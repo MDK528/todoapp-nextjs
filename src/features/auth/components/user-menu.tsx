@@ -32,7 +32,7 @@ type UserMenuProps = {
   user: UserMenuUser;
   /** `compact` — avatar-only trigger; `profile` — avatar + name in the trigger. */
   variant?: UserMenuTriggerVariant;
-  plan?: string;
+  // plan?: string;
   className?: string;
 };
 
@@ -72,7 +72,7 @@ function UserAvatar({
 export function UserMenu({
   user,
   variant = "profile",
-  plan = DEFAULT_PLAN,
+  // plan = DEFAULT_PLAN,
   className,
 }: UserMenuProps) {
   const router = useRouter();
@@ -82,7 +82,7 @@ export function UserMenu({
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push(SIGN_IN_PATH);
+          router.push("/");
         },
       },
     });
@@ -126,9 +126,9 @@ export function UserMenu({
                     {user.email}
                   </p>
                 ) : null}
-                <Badge variant="secondary" className="w-fit">
+                {/* <Badge variant="secondary" className="w-fit">
                   {plan} plan
-                </Badge>
+                </Badge> */}
               </div>
             </div>
           </DropdownMenuLabel>

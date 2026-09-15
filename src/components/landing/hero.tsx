@@ -15,7 +15,6 @@ export function Hero() {
   return (
     <section className="mx-auto max-w-6xl px-6 pb-20 pt-16 md:pb-28 md:pt-24">
       <div className="grid items-center gap-14 md:grid-cols-2 md:gap-10">
-        {/* Copy */}
         <div>
           <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
             Get it done,
@@ -30,7 +29,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button size="lg" asChild>
-              <Link href="/sign-up">
+              <Link href="/sign-in">
                 Get started free
                 <ArrowRight className="size-4" />
               </Link>
@@ -45,7 +44,6 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Task list visual */}
         <div className="relative">
           <div className="rounded-xl border border-border bg-card p-2 shadow-sm">
             <div className="flex items-center justify-between px-3 py-2">

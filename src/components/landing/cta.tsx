@@ -21,7 +21,7 @@ export function Cta() {
               className="mt-8"
               asChild
             >
-              <Link href="/sign-up">
+              <Link href="/sign-in">
                 Get started free
                 <ArrowRight className="size-4" />
               </Link>

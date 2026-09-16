@@ -22,7 +22,6 @@ export default async function DashboardPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        {/* Header */}
         <header className="sticky top-0 flex h-16 shrink-0 items-center gap-2 border-b bg-background px-4 z-10">
           <SidebarTrigger className="-ml-1 text-primary" />
           <Separator
@@ -41,11 +40,9 @@ export default async function DashboardPage() {
           </div>
         </header>
 
-        {/* Main content */}
         <main className="flex flex-1 flex-col items-center px-4 py-10">
           <div className="w-full max-w-xl">
             <div className="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
-              {/* Todo list */}
               {todos.length > 0 ? (
                 <ul>
                   {todos.map((todo) => (
@@ -68,11 +65,9 @@ export default async function DashboardPage() {
                 </div>
               )}
 
-              {/* Add form always visible at the bottom */}
               <AddTodoForm />
             </div>
-
-            {/* Motivational copy when everything's done */}
+            
             {total > 0 && done === total && (
               <p className="mt-4 text-center font-mono text-xs text-muted-foreground">
                 All done. Loop resets at midnight.
